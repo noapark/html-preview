@@ -1,0 +1,167 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0;display:flex;flex-direction:column;gap:1.5rem}
+.hero{text-align:center;padding:1.5rem 0 0.5rem}
+.hero h1{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.hero p{font-size:14px;color:var(--color-text-secondary)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.card-header{padding:1rem 1.25rem 0.75rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:var(--border-radius-md);margin-bottom:8px}
+.badge-blue{background:#E6F1FB;color:#0C447C}
+.badge-purple{background:#EEEDFE;color:#3C3489}
+.card-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.card-sub{font-size:13px;color:var(--color-text-secondary)}
+.card-body{padding:1rem 1.25rem;display:flex;flex-direction:column;gap:12px}
+.row-item{display:flex;align-items:flex-start;gap:10px}
+.row-icon{width:28px;height:28px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.icon-blue{background:#E6F1FB;color:#185FA5}
+.icon-purple{background:#EEEDFE;color:#534AB7}
+.row-text p{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.row-text span{font-size:12px;color:var(--color-text-secondary)}
+.divider{height:0.5px;background:var(--color-border-tertiary)}
+.notion-section{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.notion-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
+.notion-role{font-size:13px;color:var(--color-text-primary);font-weight:500}
+.notion-desc{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0.75rem 0}
+.flow-step{font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:4px 10px;color:var(--color-text-primary)}
+.flow-arrow{font-size:12px;color:var(--color-text-tertiary)}
+.btn-row{display:flex;gap:8px;margin-top:4px}
+.btn-ask{font-size:13px;padding:6px 14px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary)}
+.btn-ask:hover{background:var(--color-background-secondary)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px}
+.compare-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px}
+.compare-val{font-size:13px;color:var(--color-text-primary);font-weight:500}
+</style>
+<div class="wrap">
+  <h2 class="sr-only">Claude Code와 Notion을 활용한 업무 자동화 방법 비교</h2>
+  <div class="hero">
+    <h1>업무 자동화 가이드</h1>
+    <p>두 가지 접근법 — 역할과 목적에 따라 선택하세요</p>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <div class="card-header">
+        <div class="badge badge-blue">방법 1</div>
+        <div class="card-title"><i class="ti ti-terminal-2" aria-hidden="true" style="font-size:15px;margin-right:6px;vertical-align:-2px"></i>Claude Code + Python</div>
+        <div class="card-sub">개발자 / 기술 사용자 대상</div>
+      </div>
+      <div class="card-body">
+        <div class="row-item">
+          <div class="row-icon icon-blue"><i class="ti ti-file-code" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>.clinerules 파일</p>
+            <span>프로젝트 루트에 Claude 역할·기술스택 정의</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="row-icon icon-blue"><i class="ti ti-brand-python" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>Python 자동화 스크립트</p>
+            <span>Notion API 호출, 데이터 처리, 스케줄링</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="row-icon icon-blue"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>GitHub Actions</p>
+            <span>매일 자동 실행 / 로그 결과 Notion 저장</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="notion-section">
+          <div class="notion-label">Notion 역할</div>
+          <div class="notion-role"><i class="ti ti-database" aria-hidden="true" style="font-size:13px;margin-right:4px;vertical-align:-1px"></i>실행 로그 / 결과 저장소</div>
+          <div class="notion-desc">스크립트가 실행된 결과를 자동으로 DB에 기록</div>
+        </div>
+        <div>
+          <div class="notion-label" style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px">자동화 흐름</div>
+          <div class="flow">
+            <span class="flow-step">.clinerules 작성</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">코드 생성</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">테스트</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">스케줄 실행</span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-ask" onclick="sendPrompt('.clinerules 파일 예시 템플릿 만들어줘')">예시 템플릿 만들기 ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="badge badge-purple">방법 2</div>
+        <div class="card-title"><i class="ti ti-layout-cards" aria-hidden="true" style="font-size:15px;margin-right:6px;vertical-align:-2px"></i>프롬프트 템플릿 관리</div>
+        <div class="card-sub">비개발자 / 기획자 대상</div>
+      </div>
+      <div class="card-body">
+        <div class="row-item">
+          <div class="row-icon icon-purple"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>.md 프롬프트 파일</p>
+            <span>역할·작업·입출력 형식을 마크다운으로 정의</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="row-icon icon-purple"><i class="ti ti-template" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>Notion 템플릿 버튼</p>
+            <span>입력값만 바꿔 반복 사용 — 노코드</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="row-icon icon-purple"><i class="ti ti-plug" aria-hidden="true"></i></div>
+          <div class="row-text">
+            <p>Zapier / Make 연결 (선택)</p>
+            <span>Notion 입력 → Claude API 자동 실행</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="notion-section">
+          <div class="notion-label">Notion 역할</div>
+          <div class="notion-role"><i class="ti ti-books" aria-hidden="true" style="font-size:13px;margin-right:4px;vertical-align:-1px"></i>프롬프트 라이브러리</div>
+          <div class="notion-desc">직무별 프롬프트를 DB로 관리, 팀 공유 가능</div>
+        </div>
+        <div>
+          <div class="notion-label" style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px">자동화 흐름</div>
+          <div class="flow">
+            <span class="flow-step">.md 템플릿 작성</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Notion 저장</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">입력 수정</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Claude 실행</span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-ask" onclick="sendPrompt('방법 2용 Notion 프롬프트 라이브러리 DB 구조 만들어줘')">라이브러리 구조 만들기 ↗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-row">
+    <div class="compare-card">
+      <div class="compare-label">어떤 걸 선택할까?</div>
+      <div class="compare-val">코드 작성이 가능하다면 → 방법 1</div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-label">어떤 걸 선택할까?</div>
+      <div class="compare-val">빠르게 쓰고 싶다면 → 방법 2</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding-bottom:0.5rem">
+    <button class="btn-ask" onclick="sendPrompt('두 방법을 합쳐서 팀 전체가 쓸 수 있는 자동화 시스템 설계해줘')">두 방법 합친 시스템 설계하기 ↗</button>
+  </div>
+</div>
