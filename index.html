@@ -1,167 +1,890 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Noa Park | 교육전문가 포트폴리오</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans)}
-.wrap{padding:1.5rem 0;display:flex;flex-direction:column;gap:1.5rem}
-.hero{text-align:center;padding:1.5rem 0 0.5rem}
-.hero h1{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
-.hero p{font-size:14px;color:var(--color-text-secondary)}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
-.card-header{padding:1rem 1.25rem 0.75rem;border-bottom:0.5px solid var(--color-border-tertiary)}
-.badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:var(--border-radius-md);margin-bottom:8px}
-.badge-blue{background:#E6F1FB;color:#0C447C}
-.badge-purple{background:#EEEDFE;color:#3C3489}
-.card-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
-.card-sub{font-size:13px;color:var(--color-text-secondary)}
-.card-body{padding:1rem 1.25rem;display:flex;flex-direction:column;gap:12px}
-.row-item{display:flex;align-items:flex-start;gap:10px}
-.row-icon{width:28px;height:28px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
-.icon-blue{background:#E6F1FB;color:#185FA5}
-.icon-purple{background:#EEEDFE;color:#534AB7}
-.row-text p{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
-.row-text span{font-size:12px;color:var(--color-text-secondary)}
-.divider{height:0.5px;background:var(--color-border-tertiary)}
-.notion-section{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
-.notion-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
-.notion-role{font-size:13px;color:var(--color-text-primary);font-weight:500}
-.notion-desc{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
-.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0.75rem 0}
-.flow-step{font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:4px 10px;color:var(--color-text-primary)}
-.flow-arrow{font-size:12px;color:var(--color-text-tertiary)}
-.btn-row{display:flex;gap:8px;margin-top:4px}
-.btn-ask{font-size:13px;padding:6px 14px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary)}
-.btn-ask:hover{background:var(--color-background-secondary)}
-.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.compare-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px}
-.compare-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px}
-.compare-val{font-size:13px;color:var(--color-text-primary);font-weight:500}
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --primary:#4F46E5;
+  --primary-light:#EEF2FF;
+  --accent:#10B981;
+  --bg:#F8FAFC;
+  --card:#FFFFFF;
+  --text:#1E293B;
+  --sub:#64748B;
+  --border:#E2E8F0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Pretendard',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.site-header .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:72px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.nav ul{
+  display:flex;
+  gap:10px;
+  list-style:none;
+}
+
+.nav a{
+  text-decoration:none;
+  color:var(--sub);
+  font-size:15px;
+  font-weight:600;
+  padding:10px 16px;
+  border-radius:10px;
+  transition:0.25s;
+}
+
+.nav a:hover{
+  background:var(--primary-light);
+  color:var(--primary);
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding:110px 0 90px;
+}
+
+.hero-wrap{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:center;
+}
+
+.hero-sub{
+  color:var(--primary);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:54px;
+  line-height:1.15;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+.hero p{
+  color:var(--sub);
+  font-size:18px;
+  max-width:620px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.25s;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 20px rgba(79,70,229,0.18);
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+}
+
+.btn-outline:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.hero-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:35px;
+  box-shadow:0 10px 30px rgba(15,23,42,0.06);
+}
+
+.profile-image{
+  width:100%;
+  border-radius:22px;
+  aspect-ratio:1/1;
+  background:linear-gradient(135deg,#4F46E5,#7C3AED);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:90px;
+  color:#fff;
+  margin-bottom:24px;
+}
+
+.profile-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:var(--primary-light);
+  color:var(--primary);
+  font-size:13px;
+  font-weight:600;
+}
+
+/* ================= SECTION ================= */
+.section{
+  padding:90px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin-bottom:14px;
+  letter-spacing:-1px;
+}
+
+.section-title p{
+  color:var(--sub);
+  font-size:17px;
+}
+
+/* ================= FEATURES ================= */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+}
+
+.feature-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px;
+  transition:0.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 30px rgba(79,70,229,0.08);
+}
+
+.feature-icon{
+  font-size:36px;
+  margin-bottom:18px;
+}
+
+.feature-card h3{
+  margin-bottom:12px;
+  font-size:20px;
+}
+
+.feature-card p{
+  color:var(--sub);
+  font-size:15px;
+}
+
+/* ================= CAREER ================= */
+.timeline{
+  max-width:850px;
+  margin:auto;
+  position:relative;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:0;
+  width:2px;
+  height:100%;
+  background:var(--border);
+}
+
+.timeline-item{
+  position:relative;
+  padding-left:70px;
+  margin-bottom:45px;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:10px;
+  top:6px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--primary);
+}
+
+.timeline-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+}
+
+.timeline-card h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.timeline-card p{
+  color:var(--sub);
+  font-size:15px;
+}
+
+.badge-list{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.badge{
+  background:#ECFDF5;
+  color:#047857;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* ================= PROJECTS ================= */
+.filter-wrap{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.filter-btn{
+  border:none;
+  background:#fff;
+  border:1px solid var(--border);
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.25s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--primary);
+  color:#fff;
+  border-color:var(--primary);
+}
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+}
+
+.project-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:30px;
+  transition:0.3s;
+}
+
+.project-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 30px rgba(15,23,42,0.08);
+}
+
+.project-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.project-category{
+  background:var(--primary-light);
+  color:var(--primary);
+  font-size:12px;
+  font-weight:700;
+  padding:7px 12px;
+  border-radius:999px;
+}
+
+.project-card h3{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.project-card p{
+  color:var(--sub);
+  font-size:15px;
+  margin-bottom:18px;
+}
+
+.curriculum{
+  list-style:none;
+}
+
+.curriculum li{
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+  color:#475569;
+}
+
+.curriculum li:last-child{
+  border-bottom:none;
+}
+
+/* ================= CONTACT ================= */
+.contact-wrap{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.contact-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px;
+}
+
+.contact-card h3{
+  margin-bottom:22px;
+  font-size:22px;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  font-family:inherit;
+  font-size:15px;
+  background:#fff;
+}
+
+.contact-form textarea{
+  resize:vertical;
+  min-height:140px;
+}
+
+.contact-links{
+  list-style:none;
+}
+
+.contact-links li{
+  margin-bottom:18px;
+}
+
+.contact-links a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:90px;
+  background:#0F172A;
+  color:#94A3B8;
+  text-align:center;
+  padding:40px 20px;
+  font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:900px){
+
+  .hero-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
+
+  .nav{
+    display:none;
+  }
+
+  .hero{
+    padding:80px 0 60px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .section{
+    padding:70px 0;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+}
 </style>
-<div class="wrap">
-  <h2 class="sr-only">Claude Code와 Notion을 활용한 업무 자동화 방법 비교</h2>
-  <div class="hero">
-    <h1>업무 자동화 가이드</h1>
-    <p>두 가지 접근법 — 역할과 목적에 따라 선택하세요</p>
-  </div>
+</head>
 
-  <div class="cols">
-    <div class="card">
-      <div class="card-header">
-        <div class="badge badge-blue">방법 1</div>
-        <div class="card-title"><i class="ti ti-terminal-2" aria-hidden="true" style="font-size:15px;margin-right:6px;vertical-align:-2px"></i>Claude Code + Python</div>
-        <div class="card-sub">개발자 / 기술 사용자 대상</div>
-      </div>
-      <div class="card-body">
-        <div class="row-item">
-          <div class="row-icon icon-blue"><i class="ti ti-file-code" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>.clinerules 파일</p>
-            <span>프로젝트 루트에 Claude 역할·기술스택 정의</span>
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="row-icon icon-blue"><i class="ti ti-brand-python" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>Python 자동화 스크립트</p>
-            <span>Notion API 호출, 데이터 처리, 스케줄링</span>
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="row-icon icon-blue"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>GitHub Actions</p>
-            <span>매일 자동 실행 / 로그 결과 Notion 저장</span>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="notion-section">
-          <div class="notion-label">Notion 역할</div>
-          <div class="notion-role"><i class="ti ti-database" aria-hidden="true" style="font-size:13px;margin-right:4px;vertical-align:-1px"></i>실행 로그 / 결과 저장소</div>
-          <div class="notion-desc">스크립트가 실행된 결과를 자동으로 DB에 기록</div>
-        </div>
-        <div>
-          <div class="notion-label" style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px">자동화 흐름</div>
-          <div class="flow">
-            <span class="flow-step">.clinerules 작성</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">코드 생성</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">테스트</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">스케줄 실행</span>
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn-ask" onclick="sendPrompt('.clinerules 파일 예시 템플릿 만들어줘')">예시 템플릿 만들기 ↗</button>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container">
+    <div class="logo">Noa Park</div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#career">경력</a></li>
+        <li><a href="#projects">강의</a></li>
+        <li><a href="#contact">문의</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="about">
+  <div class="container">
+
+    <div class="hero-wrap">
+
+      <div>
+        <div class="hero-sub">2026 교육 전문가 포트폴리오</div>
+
+        <h1>
+          Learn Smarter,<br>
+          Build Faster 🚀
+        </h1>
+
+        <p>
+          AI · 코딩 · 디자인 융합 교육을 기반으로
+          실습 중심 커리큘럼을 설계합니다.
+          학교 · 기관 · 기업 대상 맞춤형 교육을 제공합니다.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">강의 보기</a>
+          <a href="#contact" class="btn btn-outline">문의하기</a>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="badge badge-purple">방법 2</div>
-        <div class="card-title"><i class="ti ti-layout-cards" aria-hidden="true" style="font-size:15px;margin-right:6px;vertical-align:-2px"></i>프롬프트 템플릿 관리</div>
-        <div class="card-sub">비개발자 / 기획자 대상</div>
-      </div>
-      <div class="card-body">
-        <div class="row-item">
-          <div class="row-icon icon-purple"><i class="ti ti-file-text" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>.md 프롬프트 파일</p>
-            <span>역할·작업·입출력 형식을 마크다운으로 정의</span>
-          </div>
+      <div class="hero-card">
+        <div class="profile-image" aria-label="강사 프로필 이미지">
+          🎨
         </div>
-        <div class="row-item">
-          <div class="row-icon icon-purple"><i class="ti ti-template" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>Notion 템플릿 버튼</p>
-            <span>입력값만 바꿔 반복 사용 — 노코드</span>
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="row-icon icon-purple"><i class="ti ti-plug" aria-hidden="true"></i></div>
-          <div class="row-text">
-            <p>Zapier / Make 연결 (선택)</p>
-            <span>Notion 입력 → Claude API 자동 실행</span>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="notion-section">
-          <div class="notion-label">Notion 역할</div>
-          <div class="notion-role"><i class="ti ti-books" aria-hidden="true" style="font-size:13px;margin-right:4px;vertical-align:-1px"></i>프롬프트 라이브러리</div>
-          <div class="notion-desc">직무별 프롬프트를 DB로 관리, 팀 공유 가능</div>
-        </div>
-        <div>
-          <div class="notion-label" style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px">자동화 흐름</div>
-          <div class="flow">
-            <span class="flow-step">.md 템플릿 작성</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">Notion 저장</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">입력 수정</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">Claude 실행</span>
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn-ask" onclick="sendPrompt('방법 2용 Notion 프롬프트 라이브러리 DB 구조 만들어줘')">라이브러리 구조 만들기 ↗</button>
+
+        <h3 style="font-size:26px; margin-bottom:8px;">
+          de violet : Noa Park
+        </h3>
+
+        <p style="color:var(--sub); margin-bottom:22px;">
+          기술과 디자인을 연결하는 융합 강사
+        </p>
+
+        <div class="profile-meta">
+          <span class="tag">AI 교육</span>
+          <span class="tag">피지컬 컴퓨팅</span>
+          <span class="tag">업무 자동화</span>
+          <span class="tag">블록코딩</span>
         </div>
       </div>
+
     </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>핵심 강점</h2>
+      <p>
+        이론보다 실습, 단순 기능보다 실제 활용 중심으로 설계합니다
+      </p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>즉시 실습 가능</h3>
+        <p>
+          강의 직후 바로 적용 가능한 실습 중심 교육으로 구성합니다.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>수준별 맞춤 학습</h3>
+        <p>
+          입문자부터 심화 과정까지 학습자 수준에 맞춰 운영합니다.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>최신 AI 커리큘럼</h3>
+        <p>
+          생성형 AI와 현장형 자동화 도구를 기반으로 실무 중심 교육을 제공합니다.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>디자인 × 기술 융합</h3>
+        <p>
+          시각적 사고와 기술 교육을 결합한 융합형 프로젝트를 설계합니다.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAREER ================= -->
+<section class="section" id="career">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>경력 & 이력</h2>
+      <p>
+        학교 · 기관 · 교육센터 기반의 현장형 교육 경험
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+          <h3>2022 – 현재 | AI 융합 교육 강사</h3>
+
+          <p>
+            교육센터 및 학교 대상 AI · 코딩 · 자동화 교육 운영
+            <br>
+            연간 200명 이상 프로젝트 기반 수업 진행
+          </p>
+
+          <div class="badge-list">
+            <span class="badge">생성형 AI</span>
+            <span class="badge">AX 교육</span>
+            <span class="badge">업무 자동화</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+          <h3>2019 – 2022 | 방과후 코딩 강사</h3>
+
+          <p>
+            블록코딩 · 피지컬 컴퓨팅 · 메이커 교육 운영
+            <br>
+            프로젝트 기반 창의융합 수업 설계
+          </p>
+
+          <div class="badge-list">
+            <span class="badge">스크래치</span>
+            <span class="badge">아두이노</span>
+            <span class="badge">메이커 교육</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>대표 강의 & 프로젝트</h2>
+      <p>
+        실습 중심으로 설계된 대표 교육 과정
+      </p>
+    </div>
+
+    <div class="filter-wrap">
+      <button class="filter-btn active">전체</button>
+      <button class="filter-btn">AI</button>
+      <button class="filter-btn">코딩</button>
+      <button class="filter-btn">디자인</button>
+      <button class="filter-btn">기타</button>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+
+        <div class="project-top">
+          <span class="project-category">PHYSICAL</span>
+        </div>
+
+        <h3>A-1 피지컬 컴퓨팅 기초</h3>
+
+        <p>
+          대상 : 중등 / 고등 · 총 6차시
+        </p>
+
+        <ul class="curriculum">
+          <li>1차시 : 아두이노 소개 및 LED 제어</li>
+          <li>2차시 : 센서 입력과 출력 연결</li>
+          <li>3차시 : 간단한 프로젝트 제작</li>
+          <li>4차시 : 피지컬 컴퓨팅 응용 사례</li>
+          <li>5차시 : 팀 프로젝트 설계</li>
+          <li>6차시 : 발표 및 피드백</li>
+        </ul>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+
+        <div class="project-top">
+          <span class="project-category">BLOCK CODING</span>
+        </div>
+
+        <h3>B-1 블록코딩 창의 프로젝트</h3>
+
+        <p>
+          대상 : 초등 / 중등 · 총 4차시
+        </p>
+
+        <ul class="curriculum">
+          <li>1차시 : 스크래치 기본 문법</li>
+          <li>2차시 : 캐릭터 움직임과 이벤트 처리</li>
+          <li>3차시 : 게임 / 스토리텔링 제작</li>
+          <li>4차시 : 완성작 발표 및 공유</li>
+        </ul>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+
+        <div class="project-top">
+          <span class="project-category">AI AUTOMATION</span>
+        </div>
+
+        <h3>C-1 AI 활용 업무 자동화</h3>
+
+        <p>
+          대상 : 성인 / 기업 · 총 3차시
+        </p>
+
+        <ul class="curriculum">
+          <li>1차시 : ChatGPT 활용 기초</li>
+          <li>2차시 : Notion AI 문서 자동화</li>
+          <li>3차시 : 실무 프로젝트 적용</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>문의하기</h2>
+      <p>
+        강의 · 협업 · 파트너십 관련 문의를 남겨주세요
+      </p>
+    </div>
+
+    <div class="contact-wrap">
+
+      <!-- FORM -->
+      <div class="contact-card">
+
+        <h3>문의 폼</h3>
+
+        <form class="contact-form">
+
+          <input
+            type="text"
+            placeholder="이름"
+            aria-label="이름 입력"
+          >
+
+          <input
+            type="email"
+            placeholder="이메일"
+            aria-label="이메일 입력"
+          >
+
+          <select aria-label="문의 유형 선택">
+            <option>문의 유형 선택</option>
+            <option>강의 문의</option>
+            <option>파트너십</option>
+            <option>프로젝트 협업</option>
+          </select>
+
+          <textarea
+            placeholder="문의 내용을 입력해주세요"
+            aria-label="문의 메시지 입력"
+          ></textarea>
+
+          <button class="btn btn-primary" type="submit">
+            문의 보내기
+          </button>
+
+        </form>
+      </div>
+
+      <!-- LINKS -->
+      <div class="contact-card">
+
+        <h3>연락처 & 소셜</h3>
+
+        <ul class="contact-links">
+          <li>
+            📧
+            <a href="mailto:pnoa79@naver.com">
+              pnoa79@naver.com
+            </a>
+          </li>
+
+          <li>
+            💻
+            <a href="https://github.com/noapark" target="_blank">
+              github.com/noapark
+            </a>
+          </li>
+
+          <li>
+            📝
+            <a href="https://naver.me/5OltuzOE" target="_blank">
+              네이버 폼 문의하기
+            </a>
+          </li>
+
+          <li>
+            📚
+            <a href="#">
+              블로그 / 인스타그램 추가 가능
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="compare-row">
-    <div class="compare-card">
-      <div class="compare-label">어떤 걸 선택할까?</div>
-      <div class="compare-val">코드 작성이 가능하다면 → 방법 1</div>
-    </div>
-    <div class="compare-card">
-      <div class="compare-label">어떤 걸 선택할까?</div>
-      <div class="compare-val">빠르게 쓰고 싶다면 → 방법 2</div>
-    </div>
-  </div>
+</section>
 
-  <div style="text-align:center;padding-bottom:0.5rem">
-    <button class="btn-ask" onclick="sendPrompt('두 방법을 합쳐서 팀 전체가 쓸 수 있는 자동화 시스템 설계해줘')">두 방법 합친 시스템 설계하기 ↗</button>
-  </div>
-</div>
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 Noa Park. All rights reserved.
+</footer>
+
+</body>
+</html>
